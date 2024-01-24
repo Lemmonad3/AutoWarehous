@@ -1,0 +1,17 @@
+﻿<Window x:Class="AutoWarehouse.View.AutoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoWarehouse.View"
+        mc:Ignorable="d"
+        Title="AutoWindow" Height="373" Width="291">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Авторизация"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="52,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Введите "/><Run Language="ru-ru" Text="л"/><Run Text="огин"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="21" Margin="52,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Введите пароль"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <Button x:Name="btnSingin" Background="AliceBlue" Content="Войти" HorizontalAlignment="Left" Margin="74,242,0,0" VerticalAlignment="Top" Width="100" Height="37" Click="btnSingin_Click"/>
+        <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="52,171,0,0" VerticalAlignment="Top" Width="144"/>
+    </Grid>
+</Window>
