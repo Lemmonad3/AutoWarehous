@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Главное окно" Height="450" Width="416"
+         WindowStartupLocation="CenterScreen"
+ WindowStyle="SingleBorderWindow"
+>
+    <Window.Resources>
+        <Style x:Key="test" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="ButtonBorder" CornerRadius="10" BorderThickness="1" BorderBrush="#FF1B62A4" Background="#FF1B62A4" Height="28" Width="102">
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <TextBlock  HorizontalAlignment="Center" Margin="0,252,0,0" TextWrapping="Wrap" Text="Warehouse - программа созданная с целью помочь автоматизировать складское помещение предприятия" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button  HorizontalAlignment="Left" Click="btnAboutProgramm_Click" Margin="10,10,0,0" VerticalAlignment="Top" Height="58" Width="65">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Resources/aboutProgram.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button  HorizontalAlignment="Left" Click="btnEducation_Click" Margin="80,23,0,0" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Resources/Education.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Content="Авторизоваться" Click="btnAuto_Click" Foreground="White" Style="{StaticResource test}" Background="#FF1B62A4" HorizontalAlignment="Left" Margin="284,362,0,0" VerticalAlignment="Top">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Image HorizontalAlignment="Center" Height="140" Margin="0,78,0,0" VerticalAlignment="Top" Width="243" Source="/Resources/Logo.jpg"/>
     </Grid>
 </Window>

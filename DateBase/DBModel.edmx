@@ -20,20 +20,14 @@
           <Property Name="NameItem" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryItem" Type="int" Nullable="false" />
           <Property Name="PictureItem" Type="int" />
-          <Property Name="TimeOfReceipt" Type="datetime" Nullable="false" />
+          <Property Name="TimeOfReceipt" Type="datetime" />
           <Property Name="Quantity" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Warehouse.dbo.OrderEquipment" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="OrderEquipment">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Worker" />
-            <PropertyRef Name="Equipment" />
-            <PropertyRef Name="Category" />
-            <PropertyRef Name="Quantity" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Worker" Type="int" Nullable="false" />
           <Property Name="Equipment" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Category" Type="int" Nullable="false" />
@@ -129,18 +123,10 @@
         <EntityContainer Name="Хранилище WarehouseModelContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [OrderEquipment].[Id] AS [Id], 
-    [OrderEquipment].[Worker] AS [Worker], 
-    [OrderEquipment].[Equipment] AS [Equipment], 
-    [OrderEquipment].[Category] AS [Category], 
-    [OrderEquipment].[Quantity] AS [Quantity]
-    FROM [dbo].[OrderEquipment] AS [OrderEquipment]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Item" EntitySet="Item" />
@@ -184,10 +170,22 @@
           <Property Name="NameItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CategoryItem" Type="Int32" Nullable="false" />
           <Property Name="PictureItem" Type="Int32" />
-          <Property Name="TimeOfReceipt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeOfReceipt" Type="DateTime" Precision="3" />
           <Property Name="Quantity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Item_Category" FromRole="Item" ToRole="Category" />
           <NavigationProperty Name="Picture" Relationship="Self.FK_Item_Picture" FromRole="Item" ToRole="Picture" />
+        </EntityType>
+        <EntityType Name="OrderEquipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Worker" Type="Int32" Nullable="false" />
+          <Property Name="Equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_OrderEquipment_Category" FromRole="OrderEquipment" ToRole="Category" />
+          <NavigationProperty Name="User" Relationship="Self.FK_OrderEquipment_User" FromRole="OrderEquipment" ToRole="User" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -217,24 +215,8 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
           <NavigationProperty Name="OrderEquipment" Relationship="Self.FK_OrderEquipment_User" FromRole="User" ToRole="OrderEquipment" />
-        </EntityType>
-        <EntityType Name="OrderEquipment">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Worker" />
-            <PropertyRef Name="Equipment" />
-            <PropertyRef Name="Category" />
-            <PropertyRef Name="Quantity" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Worker" Type="Int32" Nullable="false" />
-          <Property Name="Equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Category" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Category1" Relationship="Self.FK_OrderEquipment_Category" FromRole="OrderEquipment" ToRole="Category" />
-          <NavigationProperty Name="User" Relationship="Self.FK_OrderEquipment_User" FromRole="OrderEquipment" ToRole="User" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Item_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -272,18 +254,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="UserRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderEquipment_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="OrderEquipment" Type="Self.OrderEquipment" Multiplicity="*" />
@@ -296,13 +266,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WarehouseDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" />
           <EntitySet Name="Picture" EntityType="Self.Picture" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" />
           <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Item" EntitySet="Item" />
@@ -315,13 +297,13 @@
             <End Role="Picture" EntitySet="Picture" />
             <End Role="Item" EntitySet="Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderEquipment_User" Association="Self.FK_OrderEquipment_User">
             <End Role="User" EntitySet="User" />
             <End Role="OrderEquipment" EntitySet="OrderEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -346,6 +328,17 @@
                 <ScalarProperty Name="CategoryItem" ColumnName="CategoryItem" />
                 <ScalarProperty Name="PictureItem" ColumnName="PictureItem" />
                 <ScalarProperty Name="TimeOfReceipt" ColumnName="TimeOfReceipt" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderEquipment">
+            <EntityTypeMapping TypeName="WarehouseModel.OrderEquipment">
+              <MappingFragment StoreEntitySet="OrderEquipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -377,17 +370,6 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserRole" ColumnName="UserRole" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderEquipment">
-            <EntityTypeMapping TypeName="WarehouseModel.OrderEquipment">
-              <MappingFragment StoreEntitySet="OrderEquipment">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Worker" ColumnName="Worker" />
-                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

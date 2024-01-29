@@ -73,12 +73,13 @@ namespace AutoWarehouse.View
                     db.User.AddOrUpdate(DataContext as User);
                     db.SaveChanges();
                     ((Owner as AdminWindow).DataContext as AppVM).LoadDate();
+                    Close();
 
                 }
             }
             catch
             {
-                MessageBox.Show("Ошибка в редактировании или добавлении данных пользователя!");
+                MessageBox.Show("Ошибка в редактировании или добавлении данных!");
             }
         }
     }

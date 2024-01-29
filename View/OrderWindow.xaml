@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="450" Width="800">
+        Title="Заказ оборудования" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen"
+ >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -15,12 +17,12 @@
         </Grid.RowDefinitions>
         <ListView ItemsSource="{Binding Orders}"
              SelectedItem="{Binding SelectOrder}"
-             Grid.Row="2" Background="White">
+             Grid.Row="2" Background="White" Margin="0,40,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Grid.Row="0" >
                         <Label Content="{Binding User.Name}"/>
-                        <Label Content="{Binding Category.NameCategory}"/>
+                        <Label Content="{Binding Category1.NameCategory}"/>
                         <Label Content="{Binding Equipment}"/>
                         <Label Content="{Binding Quantity}"/>
                     </StackPanel>
@@ -29,30 +31,31 @@
         </ListView>
         <StackPanel Grid.Row="3" Margin="15" Orientation="Horizontal">
             <Button x:Name="btnOrder"
-       Foreground="Black" 
-       Background="AliceBlue"
+       Foreground="#DDFFFFFF" 
+       Background="#FF1B62A4"
        Click="btnOrder_Click"
        Width="200"
        Margin="10"
-       Content="Сделать заказ на пополнение"
+       Content="Заказ"
        Grid.Row="0"/>
             <Button x:Name="btnDel"
-       Foreground="Black" 
-       Background="AliceBlue"
+       Foreground="#DDFFFFFF" 
+       Background="#FF1B62A4"
        Margin="10"
        Click="btnDel_Click"
        Width="150"
        Content="Удалить"
        Grid.Row="0"/>
-            <Button x:Name="btnBack"
-            Foreground="Black" 
-            Background="AliceBlue"
-            Margin="10"
-            Click="btnBack_Click"
-            Width="150"
-            Content="На страницу склада"
-            />
         </StackPanel>
+        <Button Click="btnBack_Click" HorizontalAlignment="Left" Margin="15,0,0,290" Grid.Row="2" VerticalAlignment="Bottom" Height="40" Width="45">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Resources/back.png" Width="37" Margin="0,6,0,0"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
 
     </Grid>
 </Window>

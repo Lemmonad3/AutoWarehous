@@ -15,20 +15,14 @@
     <Property Name="NameItem" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CategoryItem" Type="int" Nullable="false" />
     <Property Name="PictureItem" Type="int" />
-    <Property Name="TimeOfReceipt" Type="datetime" Nullable="false" />
+    <Property Name="TimeOfReceipt" Type="datetime" />
     <Property Name="Quantity" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Warehouse.dbo.OrderEquipment" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="OrderEquipment">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="Worker" />
-      <PropertyRef Name="Equipment" />
-      <PropertyRef Name="Category" />
-      <PropertyRef Name="Quantity" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Worker" Type="int" Nullable="false" />
     <Property Name="Equipment" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Category" Type="int" Nullable="false" />
@@ -124,18 +118,10 @@
   <EntityContainer Name="Хранилище WarehouseModelContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="OrderEquipment" EntityType="Self.OrderEquipment" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [OrderEquipment].[Id] AS [Id], 
-    [OrderEquipment].[Worker] AS [Worker], 
-    [OrderEquipment].[Equipment] AS [Equipment], 
-    [OrderEquipment].[Category] AS [Category], 
-    [OrderEquipment].[Quantity] AS [Quantity]
-    FROM [dbo].[OrderEquipment] AS [OrderEquipment]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
       <End Role="Category" EntitySet="Category" />
       <End Role="Item" EntitySet="Item" />

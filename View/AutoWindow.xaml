@@ -5,13 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="AutoWindow" Height="373" Width="291">
+        Title="Авторизация" Height="373" Width="291"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Авторизация"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="52,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Введите "/><Run Language="ru-ru" Text="л"/><Run Text="огин"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="21" Margin="52,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
-        <TextBlock HorizontalAlignment="Left" Margin="52,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Введите пароль"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
-        <Button x:Name="btnSingin" Background="AliceBlue" Content="Войти" HorizontalAlignment="Left" Margin="74,242,0,0" VerticalAlignment="Top" Width="100" Height="37" Click="btnSingin_Click"/>
-        <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="52,171,0,0" VerticalAlignment="Top" Width="144"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Введите "/><Run Language="ru-ru" Text="л"/><Run Text="огин"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="25" Margin="52,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Введите пароль"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+        <Button x:Name="btnSingin" Background="#FF1B62A4" Content="Войти" HorizontalAlignment="Center" Margin="0,300,0,0" 
+                VerticalAlignment="Top" 
+                Width="100" Height="37" Click="btnSingin_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Margin="52,248,0,0" VerticalAlignment="Top" Width="144"/>
+        <Image HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="128" Source="/Resources/Logo.jpg" Stretch="Fill"/>
+        <Label Content="Пожалуйста пройдите авторизацию." HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
     </Grid>
 </Window>

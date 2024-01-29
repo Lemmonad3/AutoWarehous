@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="Окно администрации" Height="450" Width="800">
+        Title="Администрация" Height="490" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="330"/>
+            <RowDefinition Height="345"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <ListView ItemsSource="{Binding Users}"
               SelectedItem="{Binding SelectUser}"
-              Grid.Row="2" Background="White">
+              Grid.Row="2" Background="White" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical" Grid.Row="0" >
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" >
                         <Label Content="{Binding Name}"/>
                         <Label Content="{Binding Surname}"/>
                         <Label Content="{Binding Patronymic}"/>
@@ -29,29 +32,45 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="0" Margin="5" Background="AliceBlue">
-            <TextBox Margin="3"  Background="White"
-    TextChanged="TextBox_TextChanged"/>
+        <StackPanel Grid.Row="0" Margin="5" Background="White">
+
+            <TextBox Margin="3" Width="650"  Background="White"
+    TextChanged="TextBox_TextChanged" BorderBrush="Black"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Margin="15" Orientation="Horizontal">
             <Button x:Name="btnEdit"
-              Foreground="Black" 
-              Background="AliceBlue"
+              Foreground="#DDFFFFFF" 
+              Background="#FF1B62A4"
               Click="btnEdit_Click"
               Width="150"
               Margin="10"
     Content="Редактировать"
-    Grid.Row="0"/>
+    Grid.Row="0">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
             <Button x:Name="btnDel"
-    Foreground="Black" 
-    Background="AliceBlue"
+    Foreground="#DDFFFFFF" 
+    Background="#FF1B62A4"
       Margin="10"
     Click="btnDel_Click"
     Width="150"
     Content="Удалить"
-    Grid.Row="0"/>
+    Grid.Row="0">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
         </StackPanel>
+        <Button  HorizontalAlignment="Left" Click="btnBack_Click" Margin="5,0,0,0" VerticalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Resources/logo.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
     </Grid>

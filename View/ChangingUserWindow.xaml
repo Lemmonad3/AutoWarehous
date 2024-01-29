@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="ChangingUserWindow" Height="450" Width="520">
+        Title="Статус пользователя" Height="360" Width="458">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,8 +16,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Добавление или изменение пользователя"  HorizontalAlignment="Left" FontSize="25" 
-Grid.Row="0" Margin="5" />
+        <Label Content="Изменения статуса пользователя"  HorizontalAlignment="Left" FontSize="23" 
+Grid.Row="0" Margin="5" FontWeight="Bold" />
         <StackPanel Grid.Row="1" Margin="10" Width="200"  HorizontalAlignment="Left">
             <TextBlock Text="Имя:" />
             <TextBox Text= "{Binding Name}" Background="White" />
@@ -49,10 +49,14 @@ Grid.Row="0" Margin="5" />
          Height="30"
          Margin="25"
          Content="Добавить"
-         Foreground="Black"
-         Background="AliceBlue"
+         Foreground="#DDFFFFFF"
+         Background="#FF1B62A4"
          Click="btnSave_Click"
-     />
+     >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </Window>

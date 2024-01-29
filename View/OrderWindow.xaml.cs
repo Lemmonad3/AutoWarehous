@@ -2,6 +2,7 @@
 using AutoWarehouse.VM;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,13 @@ namespace AutoWarehouse.View
     /// </summary>
     public partial class OrderWindow : Window
     {
+
         public OrderWindow()
         {
             InitializeComponent();
             DataContext = new AppVM();
-        }
+           
+        }  
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
@@ -46,12 +49,15 @@ namespace AutoWarehouse.View
             }
             catch
             {
-
+                MessageBox.Show("Ошибка при удалении!");
             }
         }
 
         private void btnOrder_Click(object sender, RoutedEventArgs e)
         {
+            var changeOrder = new ChangeOrderWindow((DataContext as AppVM).SelectOrder);
+            changeOrder.Show();
+
 
         }
 

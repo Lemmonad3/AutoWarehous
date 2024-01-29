@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Project C#\AutoWarehouse\App.xaml
-5-1817060292
+11-245218063
 21731377981
-23869709455
-18-1884151971
-View\AdminWindow.xaml;View\AutoWindow.xaml;View\ItemsOnWarehouseWindow.xaml;View\MainWindow.xaml;View\OrderWindow.xaml;
+29-1429627258
+21-2037900142
+View\AdminWindow.xaml;View\AutoWindow.xaml;View\ChangeOrderWindow.xaml;View\ChangingUserWindow.xaml;View\EducationWindow.xaml;View\ItemsOnWarehouseWindow.xaml;View\MainWindow.xaml;View\OrderWindow.xaml;View\PageEducateP.xaml;View\PageEducationA.xaml;View\SplashScreen.xaml;
 
-False
+True
 

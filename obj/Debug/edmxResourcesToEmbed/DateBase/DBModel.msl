@@ -21,6 +21,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="OrderEquipment">
+      <EntityTypeMapping TypeName="WarehouseModel.OrderEquipment">
+        <MappingFragment StoreEntitySet="OrderEquipment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Worker" ColumnName="Worker" />
+          <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Picture">
       <EntityTypeMapping TypeName="WarehouseModel.Picture">
         <MappingFragment StoreEntitySet="Picture">
@@ -48,17 +59,6 @@
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserRole" ColumnName="UserRole" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="OrderEquipment">
-      <EntityTypeMapping TypeName="WarehouseModel.OrderEquipment">
-        <MappingFragment StoreEntitySet="OrderEquipment">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Worker" ColumnName="Worker" />
-          <ScalarProperty Name="Equipment" ColumnName="Equipment" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

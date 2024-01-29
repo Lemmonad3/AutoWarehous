@@ -18,7 +18,7 @@ namespace AutoWarehouse.DateBase
         public string NameItem { get; set; }
         public int CategoryItem { get; set; }
         public Nullable<int> PictureItem { get; set; }
-        public System.DateTime TimeOfReceipt { get; set; }
+        public Nullable<System.DateTime> TimeOfReceipt { get; set; }
         public string Quantity { get; set; }
     
         public virtual Category Category { get; set; }

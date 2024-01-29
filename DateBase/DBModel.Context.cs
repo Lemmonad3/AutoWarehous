@@ -27,9 +27,9 @@ namespace AutoWarehouse.DateBase
     
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<OrderEquipment> OrderEquipment { get; set; }
         public virtual DbSet<Picture> Picture { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<OrderEquipment> OrderEquipment { get; set; }
     }
 }

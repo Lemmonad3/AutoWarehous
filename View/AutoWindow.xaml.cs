@@ -37,14 +37,15 @@ namespace AutoWarehouse.View
                 {
                     MessageBox.Show("Неверный логин или пароль!");
                 }
-                if(user.UserRole == 1)
+                if (user.UserRole == 1)
                 {
-                    new AdminWindow().Show(); Close();
+                  new AdminWindow().Show(); Close();
                 }
                 else
                 {
-                    new ItemsOnWarehouseWindow().Show(); Close();
+                 new ItemsOnWarehouseWindow().Show(); Close();
                 }
+
             }
             catch (Exception )
             {

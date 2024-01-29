@@ -50,10 +50,6 @@ namespace AutoWarehouse.View
             }
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            new MainWindow().Show(); Close();
-        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -63,6 +59,12 @@ namespace AutoWarehouse.View
         private void btnOrder_Click(object sender, RoutedEventArgs e)
         {
             new OrderWindow().Show(); Close();
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show(); Close();
         }
     }
 }

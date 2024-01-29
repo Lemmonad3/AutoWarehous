@@ -60,5 +60,10 @@ namespace AutoWarehouse.View
             var changeUser = new ChangingUserWindow((DataContext as AppVM).SelectUser);
             changeUser.Show();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show(); Close();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoWarehouse.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace AutoWarehouse
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAuto_Click(object sender, RoutedEventArgs e)
+        {
+            new AutoWindow().Show(); Close();
+        }
+
+        private void btnAboutProgramm_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Программа AutoWareHouse была создана студентом группы ИС-41 Торотько Яковом");
+        }
+
+        private void btnEducation_Click(object sender, RoutedEventArgs e)
+        {
+            new EducationWindow().Show(); 
         }
     }
 }
