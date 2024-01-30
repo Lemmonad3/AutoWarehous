@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
         Title="Оборудование на складе" Height="490" Width="800"
-         WindowStartupLocation="CenterScreen"
+         WindowStartupLocation="CenterScreen"  Icon="/Resources/icon.ico"
  >
     <Grid>
         <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Grid.Row="0" >
-                        <Image Height="50" Width="50" Source="{Binding Picture.Image}" HorizontalAlignment="Left"/>
+                        <Image Height="50" Width="80" Source="{Binding Picture.Image}" HorizontalAlignment="Left"/>
                         <Label Content="{Binding NameItem}"/>
                         <Label Content="{Binding Category.NameCategory}"/>
                         <Label Content="{Binding TimeOfReceipt}"/>

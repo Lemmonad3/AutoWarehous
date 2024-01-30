@@ -8,6 +8,7 @@
         Title="Администрация" Height="490" Width="800"
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow"
+         Icon="/Resources/icon.ico"
         >
     <Grid>
         <Grid.RowDefinitions>

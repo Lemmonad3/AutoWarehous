@@ -108,6 +108,12 @@
     <Compile Include="DateBase\User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageHelp1.xaml.cs">
+      <DependentUpon>PageHelp1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageHelp2.xaml.cs">
+      <DependentUpon>PageHelp2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChangeOrderWindow.xaml.cs">
       <DependentUpon>ChangeOrderWindow.xaml</DependentUpon>
     </Compile>
@@ -123,12 +129,6 @@
     <Compile Include="View\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageEducateP.xaml.cs">
-      <DependentUpon>PageEducateP.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PageEducationA.xaml.cs">
-      <DependentUpon>PageEducationA.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -136,6 +136,14 @@
     <Compile Include="VM\AppVM.cs" />
     <Compile Include="VM\AutoVM.cs" />
     <Compile Include="VM\BaseVM.cs" />
+    <Page Include="Pages\PageHelp1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageHelp2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,14 +187,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\OrderWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PageEducateP.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PageEducationA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +240,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\next.png" />
     <Resource Include="Resources\item.png" />
     <Resource Include="Resources\statusUser.png" />
     <Resource Include="Resources\StatusOrder.png" />

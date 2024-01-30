@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace AutoWarehouse
 {
     /// <summary>
@@ -24,6 +25,7 @@ namespace AutoWarehouse
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnAuto_Click(object sender, RoutedEventArgs e)
@@ -38,7 +40,8 @@ namespace AutoWarehouse
 
         private void btnEducation_Click(object sender, RoutedEventArgs e)
         {
-            new EducationWindow().Show(); 
+            new EducationWindow().Show(); Close();
         }
+
     }
 }

@@ -8,6 +8,7 @@
         Title="Главное окно" Height="450" Width="416"
          WindowStartupLocation="CenterScreen"
  WindowStyle="SingleBorderWindow"
+         Icon="/Resources/icon.ico"
 >
     <Window.Resources>
         <Style x:Key="test" TargetType="Button">
@@ -31,7 +32,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button  HorizontalAlignment="Left" Click="btnEducation_Click" Margin="80,23,0,0" VerticalAlignment="Top">
+        <Button  HorizontalAlignment="Left" Click="btnEducation_Click" Margin="80,23,0,0" VerticalAlignment="Top" >
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/Resources/Education.png"/>

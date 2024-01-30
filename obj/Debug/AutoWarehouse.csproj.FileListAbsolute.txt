@@ -46,7 +46,7 @@ D:\Project C#\AutoWarehouse\obj\Debug\View\ChangeOrderWindow.g.cs
 D:\Project C#\AutoWarehouse\obj\Debug\View\ChangeOrderWindow.baml
 D:\Project C#\AutoWarehouse\obj\Debug\View\EducationWindow.g.cs
 D:\Project C#\AutoWarehouse\obj\Debug\View\EducationWindow.baml
-D:\Project C#\AutoWarehouse\obj\Debug\View\PageEducateP.g.cs
-D:\Project C#\AutoWarehouse\obj\Debug\View\PageEducationA.g.cs
-D:\Project C#\AutoWarehouse\obj\Debug\View\PageEducateP.baml
-D:\Project C#\AutoWarehouse\obj\Debug\View\PageEducationA.baml
+D:\Project C#\AutoWarehouse\obj\Debug\Pages\PageHelp1.g.cs
+D:\Project C#\AutoWarehouse\obj\Debug\Pages\PageHelp2.g.cs
+D:\Project C#\AutoWarehouse\obj\Debug\Pages\PageHelp1.baml
+D:\Project C#\AutoWarehouse\obj\Debug\Pages\PageHelp2.baml

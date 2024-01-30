@@ -22,6 +22,7 @@ namespace AutoWarehouse.View
         public EducationWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new Pages.PageHelp2();
         }
     }
 }

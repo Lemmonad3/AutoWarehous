@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="Статус заказа" Height="400" Width="323">
+        Title="Статус заказа" Height="400" Width="323"  Icon="/Resources/icon.ico">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

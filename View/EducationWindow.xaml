@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoWarehouse.View"
         mc:Ignorable="d"
-        Title="Окно справки" Height="450" Width="800">
-  
+        Title="Окно справки" Height="490" Width="800"
+        WindowStartupLocation="CenterScreen" Icon="/Resources/icon.ico">
     <Grid>
-        <Frame Name="EducationFrame" Background="White" NavigationUIVisibility="Hidden"/>
+        <Frame Name="MainFrame" Background="White" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
